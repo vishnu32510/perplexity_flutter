@@ -1,3 +1,8 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Initial release of the Perplexity Flutter SDK
+* Support for streaming and non-streaming chat completions
+* Multiple Perplexity models support (sonar, sonar-pro, etc.)
+* BLoC integration for Flutter apps
+* Chat roles: system, user, assistant, tool
+* Ready-to-use Flutter widgets for chat UI
