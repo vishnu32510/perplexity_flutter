@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 Future<void> main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: ".env"); // Add .env to assets in pubspec.yaml
   runApp(const PerplexityApp());
 }
 
