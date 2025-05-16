@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:perplexity_dart/perplexity_dart.dart';
+import 'chat_bloc/chat_bloc.dart';
 
 class PerplexityChatView extends StatelessWidget {
   final Widget Function(String response)? successBuilder;
