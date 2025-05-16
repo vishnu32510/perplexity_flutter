@@ -35,6 +35,27 @@ class ChatRequestModel {
     this.webSearchOptions,
   });
 
+  factory ChatRequestModel.defaultRequest(
+  {required String prompt, 
+  bool? stream,
+  PerplexityModel? model,
+}) {
+  return ChatRequestModel(
+    stream: stream ?? true,
+    model: model ?? PerplexityModel.sonar,
+    messages: [
+      MessageModel(
+        role: MessageRole.system,
+        content: 'Be precise and concise.',
+      ),
+      MessageModel(
+        role: MessageRole.user,
+        content: prompt,
+      ),
+    ],
+  );
+}
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> json = {
       'model': model.name,
@@ -61,3 +82,44 @@ class ChatRequestModel {
     return json;
   }
 }
+
+extension ChatRequestModelCopyWith on ChatRequestModel {
+  ChatRequestModel copyWith({
+    PerplexityModel? model,
+    List<MessageModel>? messages,
+    bool? stream,
+    int? maxTokens,
+    double? temperature,
+    double? topP,
+    List<String>? searchDomainFilter,
+    bool? returnImages,
+    bool? returnRelatedQuestions,
+    String? searchRecencyFilter,
+    int? topK,
+    double? presencePenalty,
+    double? frequencyPenalty,
+    Map<String, dynamic>? responseFormat,
+    Map<String, dynamic>? webSearchOptions,
+  }) {
+    return ChatRequestModel(
+      model: model ?? this.model,
+      messages: messages ?? this.messages,
+      stream: stream ?? this.stream,
+      maxTokens: maxTokens ?? this.maxTokens,
+      temperature: temperature ?? this.temperature,
+      topP: topP ?? this.topP,
+      searchDomainFilter: searchDomainFilter ?? this.searchDomainFilter,
+      returnImages: returnImages ?? this.returnImages,
+      returnRelatedQuestions:
+          returnRelatedQuestions ?? this.returnRelatedQuestions,
+      searchRecencyFilter:
+          searchRecencyFilter ?? this.searchRecencyFilter,
+      topK: topK ?? this.topK,
+      presencePenalty: presencePenalty ?? this.presencePenalty,
+      frequencyPenalty: frequencyPenalty ?? this.frequencyPenalty,
+      responseFormat: responseFormat ?? this.responseFormat,
+      webSearchOptions: webSearchOptions ?? this.webSearchOptions,
+    );
+  }
+}
+
