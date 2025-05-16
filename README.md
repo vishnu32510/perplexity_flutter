@@ -1,40 +1,64 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# perplexity_dart
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/perplexity_dart.svg)](https://pub.dev/packages/perplexity_dart)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+**Perplexity Dart SDK** is a lightweight and type-safe Dart client for interacting with [Perplexity.ai](https://www.perplexity.ai)'s `chat/completions` API.  
+It supports both streaming and non-streaming responses, flexible model switching (e.g., `sonar`, `sonar-pro`, etc.), and is designed to work with Dart CLI and Flutter apps.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+## ✨ Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- 🔁 Streamed and full chat completion support
+- 🎯 Switch between models with known context lengths
+- 💬 Chat roles: `system`, `user`, `assistant`, `tool`
+- 🧱 BLoC integration ready
+- 🖼️ *Coming soon:* Image input via base64 or HTTPS URL
 
-## Getting started
+---
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## 🚀 Getting Started
 
-## Usage
+Add the SDK to your project:
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  perplexity_dart: ^0.0.1
 ```
 
-## Additional information
+Import the SDK in your Dart code:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
-# perplexity_dart
+```dart
+import 'package:perplexity_dart/perplexity_dart.dart';
+```
+
+Initialize the client with your API key:
+
+```dart
+final client = PerplexityClient(
+  apiKey: 'your-api-key',
+);
+```
+
+Send a chat request:
+
+```dart
+final response = await client.sendMessage(
+  prompt: 'Hello, how are you?',
+  model: PerplexityModel.sonarPro,
+);
+```
+
+Stream a chat response:
+
+```dart
+final stream = client.streamChat(
+  prompt: 'Hello, how are you?',
+  model: PerplexityModel.sonarPro,
+);
+
+await for (final chunk in stream) {
+  print(chunk);
+}
+```
