@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:perplexity_flutter/perplexity_dart.dart';
+import 'package:perplexity_flutter/perplexity_flutter.dart';
 part 'chat_event.dart';
 part 'chat_state.dart';
 

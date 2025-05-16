@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:perplexity_dart/perplexity_dart.dart';
+import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: ".env");

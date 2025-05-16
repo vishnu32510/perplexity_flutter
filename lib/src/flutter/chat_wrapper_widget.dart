@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:perplexity_flutter/perplexity_dart.dart';
+import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 
 class ChatWrapperWidget extends StatelessWidget {
