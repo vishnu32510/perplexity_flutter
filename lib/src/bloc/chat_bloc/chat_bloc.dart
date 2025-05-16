@@ -5,15 +5,14 @@ part 'chat_event.dart';
 part 'chat_state.dart';
 
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
-  final String apiKey;
-  final String baseUrl;
   final PerplexityClient client;
 
-  ChatBloc(this.apiKey, this.baseUrl, this.client) : super(ChatInitial()) {
+  ChatBloc({required this.client}) : super(ChatInitial()) {
     on<ChatPromptSubmitted>(_onPromptSubmitted);
   }
 
-  Future<void> _onPromptSubmitted(ChatPromptSubmitted event, Emitter<ChatState> emit) async {
+  Future<void> _onPromptSubmitted(
+      ChatPromptSubmitted event, Emitter<ChatState> emit) async {
     try {
       emit(ChatStreaming(''));
       String buffer = '';

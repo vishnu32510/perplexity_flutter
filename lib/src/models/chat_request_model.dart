@@ -44,10 +44,13 @@ class ChatRequestModel {
     if (maxTokens != null) json['max_tokens'] = maxTokens;
     if (temperature != null) json['temperature'] = temperature;
     if (topP != null) json['top_p'] = topP;
-    if (searchDomainFilter != null) json['search_domain_filter'] = searchDomainFilter;
+    if (searchDomainFilter != null)
+      json['search_domain_filter'] = searchDomainFilter;
     if (returnImages != null) json['return_images'] = returnImages;
-    if (returnRelatedQuestions != null) json['return_related_questions'] = returnRelatedQuestions;
-    if (searchRecencyFilter != null) json['search_recency_filter'] = searchRecencyFilter;
+    if (returnRelatedQuestions != null)
+      json['return_related_questions'] = returnRelatedQuestions;
+    if (searchRecencyFilter != null)
+      json['search_recency_filter'] = searchRecencyFilter;
     if (topK != null) json['top_k'] = topK;
     if (stream != null) json['stream'] = stream;
     if (presencePenalty != null) json['presence_penalty'] = presencePenalty;

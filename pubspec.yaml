@@ -1,5 +1,6 @@
 name: perplexity_dart
-description: A lightweight Dart SDK to interact with Perplexity.ai's chat completion API (streaming + model switching supported).
+description: A lightweight Dart SDK to interact with Perplexity.ai's chat
+  completion API (streaming + model switching supported).
 version: 0.0.1
 homepage: https://github.com/vishnu32510/perplexity_dart
 repository: https://github.com/vishnu32510/perplexity_dart
@@ -13,10 +14,14 @@ topics:
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.7.0"
 
 dependencies:
-  http: ^0.13.5
   bloc: ^9.0.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  http: ^0.13.5
 
 dev_dependencies:
   lints: ^3.0.0
@@ -26,27 +31,22 @@ dev_dependencies:
 # description: "A lightweight Dart SDK to interact with Perplexity.ai's chat completion API."
 # version: 0.0.1
 # homepage: null
-
 # environment:
 #   sdk: ^3.7.2
 #   flutter: ">=1.17.0"
-
 # dependencies:
 #   flutter:
 #     sdk: flutter
 #   http: ^0.13.5
 #   bloc: ^9.0.0
-
 # dev_dependencies:
 #   flutter_lints: ^5.0.0
 #   flutter_test:
 #     sdk: flutter
-
 # # For information on the generic Dart part of this file, see the
 # # following page: https://dart.dev/tools/pub/pubspec
 # # The following section is specific to Flutter packages.
 # flutter: null
-
 # # To add assets to your package, add an assets section, like this:
 # # assets:
 # #   - images/a_dot_burr.jpeg
