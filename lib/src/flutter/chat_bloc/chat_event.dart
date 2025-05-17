@@ -7,10 +7,10 @@ abstract class ChatEvent {}
 class ChatPromptSubmitted extends ChatEvent {
   /// The request model containing the prompt and configuration.
   final ChatRequestModel requestModel;
-  
+
   /// Whether to stream the response or get it all at once.
   final bool stream;
-  
+
   /// Creates a new prompt submission event.
   ///
   /// [requestModel] contains the prompt and configuration.

@@ -2,7 +2,7 @@
 class PerplexityModel {
   /// The name of the model as recognized by the Perplexity API.
   final String name;
-  
+
   /// The maximum context length in tokens that this model supports.
   final int? contextLength;
 
@@ -11,19 +11,19 @@ class PerplexityModel {
 
   /// Sonar model - general purpose with 128K context.
   static const PerplexityModel sonar = PerplexityModel._('sonar', 128000);
-  
+
   /// Sonar Pro model - enhanced capabilities with 200K context.
   static const PerplexityModel sonarPro =
       PerplexityModel._('sonar-pro', 200000);
-  
+
   /// Sonar Deep Research model - specialized for in-depth research with 128K context.
   static const PerplexityModel sonarDeepResearch =
       PerplexityModel._('sonar-deep-research', 128000);
-  
+
   /// Sonar Reasoning model - specialized for logical reasoning with 128K context.
   static const PerplexityModel sonarReasoning =
       PerplexityModel._('sonar-reasoning', 128000);
-  
+
   /// Sonar Reasoning Pro model - enhanced reasoning capabilities with 128K context.
   static const PerplexityModel sonarReasoningPro =
       PerplexityModel._('sonar-reasoning-pro', 128000);

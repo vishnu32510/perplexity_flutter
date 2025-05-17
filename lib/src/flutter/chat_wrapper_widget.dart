@@ -9,10 +9,10 @@ import 'package:perplexity_flutter/perplexity_flutter.dart';
 class ChatWrapperWidget extends StatelessWidget {
   /// The API key for authenticating with Perplexity AI.
   final String apiKey;
-  
+
   /// The child widget that will have access to the ChatBloc.
   final Widget child;
-  
+
   /// The Perplexity model to use for generating responses.
   final PerplexityModel model;
 

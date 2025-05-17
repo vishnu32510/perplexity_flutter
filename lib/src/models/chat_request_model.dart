@@ -4,46 +4,46 @@ import 'model.dart';
 class ChatRequestModel {
   /// The Perplexity model to use for generating responses.
   final PerplexityModel model;
-  
+
   /// List of messages in the conversation.
   final List<MessageModel> messages;
-  
+
   /// Whether to stream the response or return it all at once.
   final bool? stream;
-  
+
   /// Maximum number of tokens to generate.
   final int? maxTokens;
-  
+
   /// Controls randomness in the response (0.0 to 1.0).
   final double? temperature;
-  
+
   /// Controls diversity via nucleus sampling (0.0 to 1.0).
   final double? topP;
-  
+
   /// Domains to filter search results to.
   final List<String>? searchDomainFilter;
-  
+
   /// Whether to return images in the response.
   final bool? returnImages;
-  
+
   /// Whether to return related questions in the response.
   final bool? returnRelatedQuestions;
-  
+
   /// Time filter for search results (e.g., 'day', 'week', 'month').
   final String? searchRecencyFilter;
-  
+
   /// Number of top search results to consider.
   final int? topK;
-  
+
   /// Penalty for repeating the same token (0.0 to 1.0).
   final double? presencePenalty;
-  
+
   /// Penalty for repeating the same token sequence (0.0 to 1.0).
   final double? frequencyPenalty;
-  
+
   /// Format options for the response.
   final Map<String, dynamic>? responseFormat;
-  
+
   /// Options for web search behavior.
   final Map<String, dynamic>? webSearchOptions;
 
@@ -74,7 +74,7 @@ class ChatRequestModel {
   /// [stream] determines whether to stream the response (defaults to true).
   /// [model] specifies which model to use (defaults to sonar).
   factory ChatRequestModel.defaultRequest({
-    required String prompt, 
+    required String prompt,
     bool? stream,
     PerplexityModel? model,
   }) {
@@ -180,8 +180,7 @@ extension ChatRequestModelCopyWith on ChatRequestModel {
       returnImages: returnImages ?? this.returnImages,
       returnRelatedQuestions:
           returnRelatedQuestions ?? this.returnRelatedQuestions,
-      searchRecencyFilter:
-          searchRecencyFilter ?? this.searchRecencyFilter,
+      searchRecencyFilter: searchRecencyFilter ?? this.searchRecencyFilter,
       topK: topK ?? this.topK,
       presencePenalty: presencePenalty ?? this.presencePenalty,
       frequencyPenalty: frequencyPenalty ?? this.frequencyPenalty,
@@ -190,4 +189,3 @@ extension ChatRequestModelCopyWith on ChatRequestModel {
     );
   }
 }
-

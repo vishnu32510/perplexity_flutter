@@ -2,7 +2,7 @@
 class MessageModel {
   /// The role of the message sender (system, user, assistant, or tool).
   final MessageRole role;
-  
+
   /// The text content of the message.
   final String content;
 
@@ -33,13 +33,13 @@ class MessageRole {
 
   /// System role for setting context or instructions.
   static const MessageRole system = MessageRole._('system');
-  
+
   /// User role for messages from the end user.
   static const MessageRole user = MessageRole._('user');
-  
+
   /// Assistant role for messages from the AI assistant.
   static const MessageRole assistant = MessageRole._('assistant');
-  
+
   /// Tool role for messages from tools or function calls.
   static const MessageRole tool = MessageRole._('tool');
 

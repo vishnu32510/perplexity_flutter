@@ -34,7 +34,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
         }
       } else {
         // Full response
-        final response = await client.sendMessage(requestModel: event.requestModel);
+        final response =
+            await client.sendMessage(requestModel: event.requestModel);
         buffer = response.content;
         emit(ChatStreaming(buffer));
       }

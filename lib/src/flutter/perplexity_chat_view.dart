@@ -6,10 +6,10 @@ import 'chat_bloc/chat_bloc.dart';
 class PerplexityChatView extends StatelessWidget {
   /// Optional builder for customizing the successful response display.
   final Widget Function(String response)? successBuilder;
-  
+
   /// Optional builder for customizing the error display.
   final Widget Function(String message)? errorBuilder;
-  
+
   /// Optional widget to display when there's no response yet.
   final Widget? placeholder;
 
@@ -44,7 +44,8 @@ class PerplexityChatView extends StatelessWidget {
         if (state is ChatError) {
           return errorBuilder != null
               ? errorBuilder!(state.message)
-              : Text("Error: ${state.message}", style: const TextStyle(color: Colors.red));
+              : Text("Error: ${state.message}",
+                  style: const TextStyle(color: Colors.red));
         }
 
         return placeholder ?? const Text("Enter a prompt to begin...");

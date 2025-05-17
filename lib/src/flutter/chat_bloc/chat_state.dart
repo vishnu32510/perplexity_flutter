@@ -10,7 +10,7 @@ class ChatInitial extends ChatState {}
 class ChatStreaming extends ChatState {
   /// The partial response text received so far.
   final String response;
-  
+
   /// Creates a new streaming state with the current partial response.
   ChatStreaming(this.response);
 }
@@ -19,7 +19,7 @@ class ChatStreaming extends ChatState {
 class ChatCompleted extends ChatState {
   /// The complete response text.
   final String fullResponse;
-  
+
   /// Creates a new completed state with the full response.
   ChatCompleted(this.fullResponse);
 }
@@ -28,7 +28,7 @@ class ChatCompleted extends ChatState {
 class ChatError extends ChatState {
   /// The error message.
   final String message;
-  
+
   /// Creates a new error state with the error message.
   ChatError(this.message);
 }

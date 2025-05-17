@@ -7,5 +7,3 @@ export 'src/flutter/chat_bloc/chat_bloc.dart';
 export 'src/flutter/perplexity_chat_view.dart';
 export 'src/flutter/perplexity_chat_controller.dart';
 export 'src/flutter/perplexity_chat_input.dart';
-
-

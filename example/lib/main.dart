@@ -53,35 +53,40 @@ class _ChatScreenState extends State<ChatScreen> {
     );
 
     if (_useStreaming) {
-      _client.streamChat(requestModel: request).listen(
-        (chunk) {
-          setState(() {
-            _response += chunk;
-          });
-        },
-        onDone: () {
-          setState(() => _isLoading = false);
-        },
-        onError: (e) {
-          setState(() {
-            _response = '❌ Error: $e';
-            _isLoading = false;
-          });
-        },
-        cancelOnError: true,
-      );
+      _client
+          .streamChat(requestModel: request)
+          .listen(
+            (chunk) {
+              setState(() {
+                _response += chunk;
+              });
+            },
+            onDone: () {
+              setState(() => _isLoading = false);
+            },
+            onError: (e) {
+              setState(() {
+                _response = '❌ Error: $e';
+                _isLoading = false;
+              });
+            },
+            cancelOnError: true,
+          );
     } else {
-      _client.sendMessage(requestModel: request).then((res) {
-        setState(() {
-          _response = res.content;
-          _isLoading = false;
-        });
-      }).catchError((e) {
-        setState(() {
-          _response = '❌ Error: $e';
-          _isLoading = false;
-        });
-      });
+      _client
+          .sendMessage(requestModel: request)
+          .then((res) {
+            setState(() {
+              _response = res.content;
+              _isLoading = false;
+            });
+          })
+          .catchError((e) {
+            setState(() {
+              _response = '❌ Error: $e';
+              _isLoading = false;
+            });
+          });
     }
   }
 
@@ -123,13 +128,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 const Spacer(),
                 ElevatedButton(
                   onPressed: _isLoading ? null : _sendPrompt,
-                  child: _isLoading
-                      ? const SizedBox(
-                          height: 18,
-                          width: 18,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Text('Send'),
+                  child:
+                      _isLoading
+                          ? const SizedBox(
+                            height: 18,
+                            width: 18,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                          : const Text('Send'),
                 ),
               ],
             ),

@@ -2,7 +2,7 @@
 class ChatResponse {
   /// The text content of the response.
   final String content;
-  
+
   /// List of citation sources referenced in the response.
   final List<String> citations;
 

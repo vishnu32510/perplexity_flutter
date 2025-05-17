@@ -6,10 +6,10 @@ import '../models/model.dart';
 class PerplexityChatInput extends StatefulWidget {
   /// Optional decoration for the text input field.
   final InputDecoration? decoration;
-  
+
   /// Whether to show the streaming toggle switch.
   final bool showStreamToggle;
-  
+
   /// Label text for the submit button.
   final String submitLabel;
 
@@ -38,7 +38,8 @@ class _PerplexityChatInputState extends State<PerplexityChatInput> {
     if (prompt.isEmpty) return;
 
     PerplexityChatController.of(context).submit(
-      requestModel: ChatRequestModel.defaultRequest(model: PerplexityModel.sonar, prompt: prompt),
+      requestModel: ChatRequestModel.defaultRequest(
+          model: PerplexityModel.sonar, prompt: prompt),
       stream: stream,
     );
 
