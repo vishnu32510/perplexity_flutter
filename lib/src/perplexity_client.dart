@@ -2,13 +2,25 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'models/model.dart';
 
+/// Client for interacting with the Perplexity AI API.
 class PerplexityClient {
+  /// API key used for authentication with Perplexity AI.
   final String apiKey;
+  
+  /// Base URL for the Perplexity API.
   final String baseUrl;
 
+  /// Creates a new Perplexity API client.
+  /// 
+  /// [apiKey] is required for authentication with the Perplexity API.
+  /// [baseUrl] defaults to 'https://api.perplexity.ai' but can be overridden for testing.
   PerplexityClient({required this.apiKey, this.baseUrl = 'https://api.perplexity.ai'});
 
-  /// Non-streaming response
+  /// Sends a message to the Perplexity API and returns a non-streaming response.
+  ///
+  /// [requestModel] contains the message content and configuration options.
+  /// Returns a [ChatResponse] with the AI's response.
+  /// Throws an exception if the API request fails.
   Future<ChatResponse> sendMessage({required ChatRequestModel requestModel}) async {
     final request = requestModel.copyWith(stream: false);
 
@@ -25,7 +37,11 @@ class PerplexityClient {
     }
   }
 
-  /// Streaming response
+  /// Streams a chat response from the Perplexity API.
+  ///
+  /// [requestModel] contains the message content and configuration options.
+  /// Returns a stream of string chunks that form the complete response.
+  /// Throws an exception if the API request fails.
   Stream<String> streamChat({required ChatRequestModel requestModel}) async* {
     final request = requestModel.copyWith(stream: true);
 
