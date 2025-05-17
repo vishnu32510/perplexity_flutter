@@ -1,6 +1,14 @@
+## 1.0.5
+
+* Fixed issue tracker URL in pubspec.yaml
+* Improved package metadata
+
 ## 1.0.4
 
-* Improved documentation
+* Updated http package dependency to ^1.0.0 for better compatibility
+* Fixed linting issues in chat_request_model.dart
+* Improved code quality to meet pub.dev standards
+
 ## 1.0.3
 
 * Improved documentation
