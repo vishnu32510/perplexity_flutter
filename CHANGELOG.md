@@ -1,3 +1,10 @@
+## 2.0.0
+
+* Improved code quality to meet pub.dev standards
+* Great structure, splitting the project into [`perplexity_dart`](https://pub.dev/packages/perplexity_dart) (pure API logic) and `perplexity_flutter` (UI widgets built on top) follows best practices in package architecture
+* This separation of concerns keeps [`perplexity_dart`](https://pub.dev/packages/perplexity_dart) lightweight and testable for any Dart app (e.g., CLI, server)
+* Makes `perplexity_flutter` plug-and-play for Flutter devs who want quick UI integration
+
 ## 1.0.5
 
 * Fixed issue tracker URL in pubspec.yaml

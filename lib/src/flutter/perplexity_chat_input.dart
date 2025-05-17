@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:perplexity_dart/perplexity_dart.dart';
 import 'package:perplexity_flutter/src/flutter/perplexity_chat_controller.dart';
-import '../models/model.dart';
 
 /// A widget for inputting prompts to send to the Perplexity API.
 class PerplexityChatInput extends StatefulWidget {

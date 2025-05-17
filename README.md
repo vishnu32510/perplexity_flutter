@@ -6,6 +6,8 @@
 **Perplexity Flutter SDK** is a lightweight and type-safe Dart client for interacting with [Perplexity.ai](https://www.perplexity.ai)'s `chat/completions` API.  
 It supports both streaming and non-streaming responses, flexible model switching (e.g., `sonar`, `sonar-pro`, etc.), and is designed to work with Flutter apps.
 
+This package is built on top of [perplexity_dart](https://pub.dev/packages/perplexity_dart), which provides the core API layer. If you only need API access without Flutter UI components, consider using perplexity_dart directly for a more lightweight solution. Perplexity Flutter wraps the API layer with easy-to-use Flutter widgets for faster development.
+
 ---
 
 ## ✨ Features
@@ -25,7 +27,7 @@ Add the SDK to your project:
 
 ```yaml
 dependencies:
-  perplexity_flutter: ^1.0.5
+  perplexity_flutter: ^2.0.0
 ```
 
 ## 📱 Flutter Widgets

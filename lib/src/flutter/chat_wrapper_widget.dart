@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:perplexity_flutter/perplexity_flutter.dart';
+import 'package:perplexity_dart/perplexity_dart.dart';
+
+import 'chat_bloc/chat_bloc.dart';
 
 /// A widget that provides a ChatBloc to its descendants.
 ///

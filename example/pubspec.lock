@@ -187,14 +187,21 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  perplexity_dart:
+    dependency: transitive
+    description:
+      name: perplexity_dart
+      sha256: "86f8644a71e1851722fad401e9c5a9951576c71782e37870d6fe1f37ce819b82"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   perplexity_flutter:
     dependency: "direct main"
     description:
-      name: perplexity_flutter
-      sha256: "8bb809c9113f74a45e6700ef9edf5b1428070edef089ab1930e3699f72f762e6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
+      path: ".."
+      relative: true
+    source: path
+    version: "2.0.0"
   provider:
     dependency: transitive
     description:

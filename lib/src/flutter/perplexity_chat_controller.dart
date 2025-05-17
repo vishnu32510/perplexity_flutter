@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:perplexity_dart/perplexity_dart.dart';
 import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 /// Controller for interacting with the chat functionality.
