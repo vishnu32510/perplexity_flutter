@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'chat_bloc/chat_bloc.dart';
 
+/// A widget that displays chat responses from the Perplexity API.
 class PerplexityChatView extends StatelessWidget {
+  /// Optional builder for customizing the successful response display.
   final Widget Function(String response)? successBuilder;
+  
+  /// Optional builder for customizing the error display.
   final Widget Function(String message)? errorBuilder;
+  
+  /// Optional widget to display when there's no response yet.
   final Widget? placeholder;
 
+  /// Creates a new chat view widget.
+  ///
+  /// [successBuilder] customizes how successful responses are displayed.
+  /// [errorBuilder] customizes how errors are displayed.
+  /// [placeholder] is shown before any response is received.
   const PerplexityChatView({
     super.key,
     this.successBuilder,

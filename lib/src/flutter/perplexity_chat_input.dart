@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:perplexity_flutter/src/flutter/perplexity_chat_controller.dart';
 import '../models/model.dart';
 
+/// A widget for inputting prompts to send to the Perplexity API.
 class PerplexityChatInput extends StatefulWidget {
+  /// Optional decoration for the text input field.
   final InputDecoration? decoration;
+  
+  /// Whether to show the streaming toggle switch.
   final bool showStreamToggle;
+  
+  /// Label text for the submit button.
   final String submitLabel;
 
+  /// Creates a new chat input widget.
+  ///
+  /// [decoration] customizes the appearance of the text field.
+  /// [showStreamToggle] determines if the streaming toggle is visible.
+  /// [submitLabel] is the text shown on the submit button.
   const PerplexityChatInput({
     super.key,
     this.decoration,
