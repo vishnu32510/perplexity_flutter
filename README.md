@@ -25,7 +25,7 @@ Add the SDK to your project:
 
 ```yaml
 dependencies:
-  perplexity_dart: ^0.0.1
+  perplexity_flutter: ^0.0.1
 ```
 
 ## 📱 Flutter Widgets
@@ -34,7 +34,7 @@ The SDK provides ready-to-use widgets for quick integration into your Flutter ap
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:perplexity_dart/perplexity_dart.dart';
+import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 void main() => runApp(const MyApp());
 
@@ -77,7 +77,7 @@ class ChatScreen extends StatelessWidget {
 For more control, you can use the `PerplexityClient` directly:
 
 ```dart
-import 'package:perplexity_dart/perplexity_dart.dart';
+import 'package:perplexity_flutter/perplexity_flutter.dart';
 
 void main() async {
   final client = PerplexityClient(

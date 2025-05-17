@@ -1,4 +1,4 @@
-library perplexity_dart;
+library perplexity_flutter;
 
 export 'src/perplexity_client.dart';
 export 'src/models/model.dart';
