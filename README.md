@@ -1,6 +1,6 @@
 # perplexity_flutter
 
-[![pub package](https://img.shields.io/pub/v/perplexity_dart.svg)](https://pub.dev/packages/perplexity_dart)
+[![pub package](https://img.shields.io/pub/v/perplexity_flutter.svg)](https://pub.dev/packages/perplexity_flutter)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
 **Perplexity Flutter SDK** is a lightweight and type-safe Dart client for interacting with [Perplexity.ai](https://www.perplexity.ai)'s `chat/completions` API.  
