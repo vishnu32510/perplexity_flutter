@@ -1,4 +1,4 @@
-## 1.0.3
+## 1.0.2
 
 * Updated http package dependency to ^1.0.0 for better compatibility
 * Fixed linting issues in chat_request_model.dart
