@@ -103,22 +103,45 @@ class ChatRequestModel {
       'messages': messages.map((m) => m.toJson()).toList(),
     };
 
-    if (maxTokens != null) json['max_tokens'] = maxTokens;
-    if (temperature != null) json['temperature'] = temperature;
-    if (topP != null) json['top_p'] = topP;
-    if (searchDomainFilter != null)
+    if (maxTokens != null) {
+      json['max_tokens'] = maxTokens;
+    }
+    if (temperature != null) {
+      json['temperature'] = temperature;
+    }
+    if (topP != null) {
+      json['top_p'] = topP;
+    }
+    if (searchDomainFilter != null) {
       json['search_domain_filter'] = searchDomainFilter;
-    if (returnImages != null) json['return_images'] = returnImages;
-    if (returnRelatedQuestions != null)
+    }
+    if (returnImages != null) {
+      json['return_images'] = returnImages;
+    }
+    if (returnRelatedQuestions != null) {
       json['return_related_questions'] = returnRelatedQuestions;
-    if (searchRecencyFilter != null)
+    }
+    if (searchRecencyFilter != null) {
       json['search_recency_filter'] = searchRecencyFilter;
-    if (topK != null) json['top_k'] = topK;
-    if (stream != null) json['stream'] = stream;
-    if (presencePenalty != null) json['presence_penalty'] = presencePenalty;
-    if (frequencyPenalty != null) json['frequency_penalty'] = frequencyPenalty;
-    if (responseFormat != null) json['response_format'] = responseFormat;
-    if (webSearchOptions != null) json['web_search_options'] = webSearchOptions;
+    }
+    if (topK != null) {
+      json['top_k'] = topK;
+    }
+    if (stream != null) {
+      json['stream'] = stream;
+    }
+    if (presencePenalty != null) {
+      json['presence_penalty'] = presencePenalty;
+    }
+    if (frequencyPenalty != null) {
+      json['frequency_penalty'] = frequencyPenalty;
+    }
+    if (responseFormat != null) {
+      json['response_format'] = responseFormat;
+    }
+    if (webSearchOptions != null) {
+      json['web_search_options'] = webSearchOptions;
+    }
 
     return json;
   }
