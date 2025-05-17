@@ -1,7 +1,7 @@
 name: perplexity_flutter
 description: A lightweight Flutter SDK to interact with Perplexity.ai's chat
   completion API (streaming + model switching supported).
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/vishnu32510/perplexity_flutter
 repository: https://github.com/vishnu32510/perplexity_flutter
 issue_tracker: https://github.com/vishnu32510/perplexity_flutter/issues

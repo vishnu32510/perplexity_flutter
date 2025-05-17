@@ -1,3 +1,8 @@
+## 2.0.1
+
+* Dart Code Formate checks
+* Improved code quality to meet pub.dev standards
+
 ## 2.0.0
 
 * Improved code quality to meet pub.dev standards

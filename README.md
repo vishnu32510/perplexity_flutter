@@ -27,7 +27,7 @@ Add the SDK to your project:
 
 ```yaml
 dependencies:
-  perplexity_flutter: ^2.0.0
+  perplexity_flutter: ^2.0.1
 ```
 
 ## 📱 Flutter Widgets
