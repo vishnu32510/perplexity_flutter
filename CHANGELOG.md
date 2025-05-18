@@ -1,3 +1,7 @@
+## 2.0.2
+
+* Improved package metadata
+
 ## 2.0.1
 
 * Dart Code Formate checks
