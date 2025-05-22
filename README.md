@@ -10,27 +10,27 @@ This package is built on top of [perplexity_dart](https://pub.dev/packages/perpl
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔁 Streamed and full chat completion support
-- 🎯 Switch between models with known context lengths
-- 💬 Chat roles: `system`, `user`, `assistant`, `tool`
-- 🧱 BLoC integration for Flutter apps
-- 🔧 Ready-to-use Flutter widgets for chat UI
-- 🖼️ *Coming soon:* Image input via base64 or HTTPS URL
+- Streamed and full chat completion support
+- Switch between models with known context lengths
+- Chat roles: `system`, `user`, `assistant`, `tool`
+- BLoC integration for Flutter apps
+- Ready-to-use Flutter widgets for chat UI
+- *Coming soon:* Image input via base64 or HTTPS URL
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Add the SDK to your project:
 
 ```yaml
 dependencies:
-  perplexity_flutter: ^2.0.2
+  perplexity_flutter: 
 ```
 
-## 📱 Flutter Widgets
+## Flutter Widgets
 
 The SDK provides ready-to-use widgets for quick integration into your Flutter app:
 
@@ -74,7 +74,7 @@ class ChatScreen extends StatelessWidget {
 }
 ```
 
-## 🔌 Direct API Usage
+## Direct API Usage
 
 For more control, you can use the `PerplexityClient` directly:
 
@@ -123,7 +123,7 @@ void main() async {
 }
 ```
 
-## 📋 Available Models
+## Available Models
 
 The SDK supports all current Perplexity models with their context lengths:
 
@@ -133,7 +133,7 @@ The SDK supports all current Perplexity models with their context lengths:
 - `PerplexityModel.sonarReasoning` - 128K tokens
 - `PerplexityModel.sonarReasoningPro` - 128K tokens
 
-## 🔧 Advanced Configuration
+## Advanced Configuration
 
 The `ChatRequestModel` supports various parameters for fine-tuning your requests:
 
@@ -157,7 +157,7 @@ final requestModel = ChatRequestModel(
 
 <a href="https://buymeacoffee.com/vishnu3251p" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
