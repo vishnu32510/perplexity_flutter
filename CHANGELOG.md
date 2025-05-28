@@ -1,3 +1,7 @@
+## 2.0.4
+
+* Update perplexity_dart version to ^1.0.5
+
 ## 2.0.3
 
 * Cleanup and Version updates
