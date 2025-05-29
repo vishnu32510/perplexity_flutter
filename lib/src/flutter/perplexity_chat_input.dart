@@ -13,16 +13,20 @@ class PerplexityChatInput extends StatefulWidget {
   /// Label text for the submit button.
   final String submitLabel;
 
+  /// Whether to enable image input support.
+  final bool enableImageInput;
+
+  /// Whether to enable search features.
+  final bool enableSearch;
+
   /// Creates a new chat input widget.
-  ///
-  /// [decoration] customizes the appearance of the text field.
-  /// [showStreamToggle] determines if the streaming toggle is visible.
-  /// [submitLabel] is the text shown on the submit button.
   const PerplexityChatInput({
     super.key,
     this.decoration,
     this.showStreamToggle = true,
     this.submitLabel = "Send",
+    this.enableImageInput = false,
+    this.enableSearch = false,
   });
 
   @override
@@ -32,16 +36,38 @@ class PerplexityChatInput extends StatefulWidget {
 class _PerplexityChatInputState extends State<PerplexityChatInput> {
   final controller = TextEditingController();
   bool stream = true;
+  bool useImage = false;
+  bool useSearch = false;
+  List<String>? searchDomains;
+  String? recencyFilter;
 
   void _submitPrompt() {
     final prompt = controller.text.trim();
     if (prompt.isEmpty) return;
 
-    PerplexityChatController.of(context).submit(
-      requestModel: ChatRequestModel.defaultRequest(
-          model: PerplexityModel.sonar, prompt: prompt),
-      stream: stream,
+    final requestModel = ChatRequestModel.defaultRequest(
+      model: PerplexityModel.sonar,
+      prompt: prompt,
     );
+
+    if (useImage && widget.enableImageInput) {
+      PerplexityChatController.of(context).submitWithImage(
+        requestModel: requestModel,
+        stream: stream,
+      );
+    } else if (useSearch && widget.enableSearch) {
+      PerplexityChatController.of(context).submitWithSearch(
+        requestModel: requestModel,
+        stream: stream,
+        searchDomains: searchDomains,
+        recencyFilter: recencyFilter,
+      );
+    } else {
+      PerplexityChatController.of(context).submit(
+        requestModel: requestModel,
+        stream: stream,
+      );
+    }
 
     controller.clear();
   }
@@ -64,14 +90,53 @@ class _PerplexityChatInputState extends State<PerplexityChatInput> {
                 value: stream,
                 onChanged: (val) => setState(() => stream = val),
               ),
-              const Spacer(),
             ],
+            if (widget.enableImageInput) ...[
+              const Text("Image:"),
+              Switch(
+                value: useImage,
+                onChanged: (val) => setState(() => useImage = val),
+              ),
+            ],
+            if (widget.enableSearch) ...[
+              const Text("Search:"),
+              Switch(
+                value: useSearch,
+                onChanged: (val) => setState(() => useSearch = val),
+              ),
+            ],
+            const Spacer(),
             ElevatedButton(
               onPressed: _submitPrompt,
               child: Text(widget.submitLabel),
-            )
+            ),
           ],
-        )
+        ),
+        if (useSearch && widget.enableSearch) ...[
+          const SizedBox(height: 8),
+          TextField(
+            decoration: const InputDecoration(
+              labelText: 'Search Domains (comma-separated)',
+            ),
+            onChanged: (value) {
+              setState(() {
+                searchDomains = value.split(',').map((e) => e.trim()).toList();
+              });
+            },
+          ),
+          DropdownButton<String>(
+            value: recencyFilter,
+            hint: const Text('Recency Filter'),
+            items: ['hour', 'day', 'week', 'month', 'year']
+                .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                recencyFilter = value;
+              });
+            },
+          ),
+        ],
       ],
     );
   }

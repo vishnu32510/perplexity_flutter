@@ -11,18 +11,35 @@ class PerplexityChatController {
   PerplexityChatController._(this.context);
 
   /// Gets a controller instance for the specified context.
-  ///
-  /// [context] must have a ChatBloc available in the widget tree.
   static PerplexityChatController of(BuildContext context) {
     return PerplexityChatController._(context);
   }
 
   /// Submits a prompt to the Perplexity API.
-  ///
-  /// [requestModel] contains the prompt and configuration.
-  /// [stream] determines whether to use streaming (defaults to true).
   void submit({required ChatRequestModel requestModel, bool stream = true}) {
     final bloc = context.read<ChatBloc>();
     bloc.add(ChatPromptSubmitted(requestModel, stream: stream));
+  }
+
+  /// Submits an image-based prompt to the Perplexity API.
+  void submitWithImage({required ChatRequestModel requestModel, bool stream = true}) {
+    final bloc = context.read<ChatBloc>();
+    bloc.add(ChatImagePromptSubmitted(requestModel, stream: stream));
+  }
+
+  /// Submits a search-based prompt to the Perplexity API.
+  void submitWithSearch({
+    required ChatRequestModel requestModel,
+    bool stream = true,
+    List<String>? searchDomains,
+    String? recencyFilter,
+  }) {
+    final bloc = context.read<ChatBloc>();
+    bloc.add(ChatSearchPromptSubmitted(
+      requestModel,
+      stream: stream,
+      searchDomains: searchDomains,
+      recencyFilter: recencyFilter,
+    ));
   }
 }

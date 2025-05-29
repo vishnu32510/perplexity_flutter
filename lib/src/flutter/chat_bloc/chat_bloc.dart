@@ -13,12 +13,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   /// [client] is required for making API requests.
   ChatBloc({required this.client}) : super(ChatInitial()) {
     on<ChatPromptSubmitted>(_onPromptSubmitted);
+    on<ChatImagePromptSubmitted>(_onImagePromptSubmitted);
+    on<ChatSearchPromptSubmitted>(_onSearchPromptSubmitted);
   }
 
   /// Handles the submission of a new prompt to the Perplexity API.
-  ///
-  /// [event] contains the request model and streaming preference.
-  /// [emit] is used to emit new states during the request lifecycle.
   Future<void> _onPromptSubmitted(
       ChatPromptSubmitted event, Emitter<ChatState> emit) async {
     try {
@@ -26,16 +25,83 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       String buffer = '';
 
       if (event.stream) {
-        // Streaming
         final stream = client.streamChat(requestModel: event.requestModel);
         await for (final chunk in stream) {
           buffer += chunk;
           emit(ChatStreaming(buffer));
         }
       } else {
-        // Full response
-        final response =
-            await client.sendMessage(requestModel: event.requestModel);
+        final response = await client.sendMessage(requestModel: event.requestModel);
+        buffer = response.content;
+        emit(ChatStreaming(buffer));
+      }
+
+      emit(ChatCompleted(buffer));
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  /// Handles image-based prompts using the Perplexity API.
+  Future<void> _onImagePromptSubmitted(
+      ChatImagePromptSubmitted event, Emitter<ChatState> emit) async {
+    try {
+      emit(ChatStreaming(''));
+      String buffer = '';
+
+      if (event.stream) {
+        final stream = client.streamChat(
+          requestModel: event.requestModel.copyWith(
+            returnImages: true,
+          ),
+        );
+        await for (final chunk in stream) {
+          buffer += chunk;
+          emit(ChatStreaming(buffer));
+        }
+      } else {
+        final response = await client.sendMessage(
+          requestModel: event.requestModel.copyWith(
+            returnImages: true,
+          ),
+        );
+        buffer = response.content;
+        emit(ChatStreaming(buffer));
+      }
+
+      emit(ChatCompleted(buffer));
+    } catch (e) {
+      emit(ChatError(e.toString()));
+    }
+  }
+
+  /// Handles search-based prompts using the Perplexity API.
+  Future<void> _onSearchPromptSubmitted(
+      ChatSearchPromptSubmitted event, Emitter<ChatState> emit) async {
+    try {
+      emit(ChatStreaming(''));
+      String buffer = '';
+
+      if (event.stream) {
+        final stream = client.streamChat(
+          requestModel: event.requestModel.copyWith(
+            returnRelatedQuestions: true,
+            searchDomainFilter: event.searchDomains,
+            searchRecencyFilter: event.recencyFilter,
+          ),
+        );
+        await for (final chunk in stream) {
+          buffer += chunk;
+          emit(ChatStreaming(buffer));
+        }
+      } else {
+        final response = await client.sendMessage(
+          requestModel: event.requestModel.copyWith(
+            returnRelatedQuestions: true,
+            searchDomainFilter: event.searchDomains,
+            searchRecencyFilter: event.recencyFilter,
+          ),
+        );
         buffer = response.content;
         emit(ChatStreaming(buffer));
       }
